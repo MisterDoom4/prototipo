@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: 6030464e827624d419d80376624df767
+guid: b217448136a3bde4582daf5287208724
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5634391540245879096
-    second: Cenario1_0
+      213: 8071031505625602677
+    second: Running-Kankuro_0
   - first:
-      213: -8019038143849447571
-    second: Cenario1_1
+      213: 4720045860792981334
+    second: Running-Kankuro_1
   - first:
-      213: 3740078469137261582
-    second: Cenario1_2
+      213: 3775902843462484402
+    second: Running-Kankuro_2
+  - first:
+      213: -2319627284502270330
+    second: Running-Kankuro_3
+  - first:
+      213: -3246124281075760385
+    second: Running-Kankuro_4
+  - first:
+      213: -7986847844748155442
+    second: Running-Kankuro_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cenario1_0
+      name: Running-Kankuro_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 497
-        width: 1393
-        height: 84
+        x: 5
+        y: 9
+        width: 49
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83952d9e041613e40800000000000000
-      internalID: 5634391540245879096
+      spriteID: 57adcc76460120070800000000000000
+      internalID: 8071031505625602677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cenario1_1
+      name: Running-Kankuro_1
       rect:
         serializedVersion: 2
-        x: 67
-        y: 414
-        width: 1390
-        height: 73
+        x: 74
+        y: 9
+        width: 41
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6fbb8b7b47a6b090800000000000000
-      internalID: -8019038143849447571
+      spriteID: 6575e18d3b8f08140800000000000000
+      internalID: 4720045860792981334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cenario1_2
+      name: Running-Kankuro_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1500
-        height: 379
+        x: 137
+        y: 8
+        width: 43
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +165,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0463094d8d67e330800000000000000
-      internalID: 3740078469137261582
+      spriteID: 2b108fa61a3b66430800000000000000
+      internalID: 3775902843462484402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running-Kankuro_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 12
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e20ff46470fcfd0800000000000000
+      internalID: -2319627284502270330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running-Kankuro_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 8
+        width: 43
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff285b14a2373f2d0800000000000000
+      internalID: -3246124281075760385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running-Kankuro_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 9
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec521ba8334092190800000000000000
+      internalID: -7986847844748155442
       vertices: []
       indices: 
       edges: []

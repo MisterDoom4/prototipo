@@ -50,6 +50,7 @@ public abstract class Character : MonoBehaviour
     {
 
     }
+    
     /*public void HandleLayers()
     {
         // checar se está movendo //

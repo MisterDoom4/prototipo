@@ -38,6 +38,16 @@ public class Player : Character
     //private int index = 0;
     SpriteRenderer spriteRenderer;
 
+    private bool isGrounded;
+    [SerializeField]
+    private float jumpForce;
+    [SerializeField]
+    private Transform pePos;
+    [SerializeField]
+    private float checkRadius;
+    [SerializeField]
+    private LayerMask whatIsGround;
+
 
 
     protected override void Start()
@@ -59,19 +69,24 @@ public class Player : Character
         if (controlEnabled)
         {
             move.x = Input.GetAxis("Horizontal");
+            move.y = Input.GetAxis("Vertical");
+            print(move.y);
+            print(move.x);
 
         }
         else
         {
             move.x = 0;
+            move.y = 0;
         }
-
+        isGrounded = Physics2D.OverlapCircle(pePos.position, checkRadius, whatIsGround);
         base.Update();
        
     }
     protected override void ComputeVelocity()
     {
-        if(move.x > 0.01f)
+        
+        if (move.x > 0.01f)
         {
             spriteRenderer.flipX = false;
         }
@@ -80,7 +95,25 @@ public class Player : Character
             spriteRenderer.flipX = true;
         }
         animator.SetFloat("velocityX", Mathf.Abs(move.x) / 7);
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = 0.10f;
+            animator.SetBool("correndo", true);
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 0.05f;
+            animator.SetBool("correndo", false);
+        }
         direction.x = move.x;
+        if (isGrounded == true && move.y > 0.01f)
+        {
+            print(isGrounded);
+            direction.y = move.y * jumpForce;
+            print(direction.y);
+            animator.SetBool("pulando", true);
+        }
+        
     }
     private void GetInput()
     {

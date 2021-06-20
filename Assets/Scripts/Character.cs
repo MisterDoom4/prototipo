@@ -7,18 +7,12 @@ public abstract class Character : MonoBehaviour
     protected float speed;
     protected Vector2 direction;
     protected Vector2 directionMouse;
-    private Rigidbody2D myRigidbody;
+    protected Rigidbody2D myRigidbody;
     protected Animator animator;
     protected bool isAttacking = false;
-    protected Coroutine attackRoutine; 
-    public bool IsMoving
-    {
-        get
-        {
-            return direction.x != 0 || direction.y != 0;
-
-        }
-    }
+    protected Coroutine attackRoutine;
+   
+    
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -31,7 +25,8 @@ public abstract class Character : MonoBehaviour
     protected virtual void Update()
     {
         direction = Vector2.zero;
-        ComputeVelocity();
+        ComputeVelocity(); 
+       
         //HandleLayers();
     }
     private void FixedUpdate()
@@ -41,7 +36,7 @@ public abstract class Character : MonoBehaviour
     public void Move()
     {
         // muda a posição do personagem //
-        myRigidbody.position = myRigidbody.position + direction.normalized * speed;
+        myRigidbody.velocity = new Vector2(direction.x * speed, myRigidbody.velocity.y);
         
 
        

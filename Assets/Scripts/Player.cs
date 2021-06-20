@@ -56,7 +56,7 @@ public class Player : Character
         //saude.Initialize(initHealth, initHealth);
         //mana.Initialize(initMana, initMana);
         
-        speed = 0.05f;
+        speed = 2f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         base.Start();
     }
@@ -68,16 +68,14 @@ public class Player : Character
 
         if (controlEnabled)
         {
-            move.x = Input.GetAxis("Horizontal");
-            move.y = Input.GetAxis("Vertical");
-            print(move.y);
-            print(move.x);
+            move.x = Input.GetAxisRaw("Horizontal");
+            
+            
 
         }
         else
         {
             move.x = 0;
-            move.y = 0;
         }
         isGrounded = Physics2D.OverlapCircle(pePos.position, checkRadius, whatIsGround);
         base.Update();
@@ -85,6 +83,10 @@ public class Player : Character
     }
     protected override void ComputeVelocity()
     {
+        if (isGrounded)
+        {
+            animator.SetBool("pulando", false);
+        }
         
         if (move.x > 0.01f)
         {
@@ -97,22 +99,35 @@ public class Player : Character
         animator.SetFloat("velocityX", Mathf.Abs(move.x) / 7);
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speed = 0.10f;
+            speed = 4f;
             animator.SetBool("correndo", true);
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 0.05f;
+            speed = 2f;
             animator.SetBool("correndo", false);
         }
         direction.x = move.x;
-        if (isGrounded == true && move.y > 0.01f)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            print(isGrounded);
-            direction.y = move.y * jumpForce;
-            print(direction.y);
+            if (isGrounded)
+            {
+                myRigidbody.velocity = Vector2.up * jumpForce;
+                direction.y = move.y * jumpForce;
+                
+                
+
+            }
+           
+           
+        }
+        if (!isGrounded)
+        {
             animator.SetBool("pulando", true);
         }
+        
+        
+        
         
     }
     private void GetInput()

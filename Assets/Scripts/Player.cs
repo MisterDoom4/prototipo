@@ -56,7 +56,7 @@ public class Player : Character
         //saude.Initialize(initHealth, initHealth);
         //mana.Initialize(initMana, initMana);
         
-        speed = 2f;
+        speed = 5f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         base.Start();
     }
@@ -69,8 +69,6 @@ public class Player : Character
         if (controlEnabled)
         {
             move.x = Input.GetAxisRaw("Horizontal");
-            
-            
 
         }
         else
@@ -81,6 +79,7 @@ public class Player : Character
         base.Update();
        
     }
+
     protected override void ComputeVelocity()
     {
         if (isGrounded)
@@ -99,12 +98,12 @@ public class Player : Character
         animator.SetFloat("velocityX", Mathf.Abs(move.x) / 7);
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speed = 4f;
+            speed = speed * 2.5f;
             animator.SetBool("correndo", true);
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 2f;
+            speed = speed / 2.5f;
             animator.SetBool("correndo", false);
         }
         direction.x = move.x;

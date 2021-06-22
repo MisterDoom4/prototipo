@@ -85,8 +85,21 @@ public class Player : Character
         if (isGrounded)
         {
             animator.SetBool("pulando", false);
+            if (Input.GetKeyDown(KeyCode.LeftShift) && animator.GetBool("correndo") == false && move.x != 0)
+            {
+                    speed = speed * 2.5f;
+                    animator.SetBool("correndo", true);
+            }
+            
+
         }
         
+            if ((move.x == 0 || Input.GetKeyUp(KeyCode.LeftShift)) && animator.GetBool("correndo") == true)
+            {
+                    speed = speed / 2.5f;
+                    animator.SetBool("correndo", false);
+            }
+
         if (move.x > 0.01f)
         {
             spriteRenderer.flipX = false;
@@ -96,16 +109,6 @@ public class Player : Character
             spriteRenderer.flipX = true;
         }
         animator.SetFloat("velocityX", Mathf.Abs(move.x) / 7);
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            speed = speed * 2.5f;
-            animator.SetBool("correndo", true);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed = speed / 2.5f;
-            animator.SetBool("correndo", false);
-        }
         direction.x = move.x;
         if (Input.GetKeyDown(KeyCode.Space))
         {

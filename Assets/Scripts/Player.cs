@@ -90,15 +90,13 @@ public class Player : Character
                     speed = speed * 2.5f;
                     animator.SetBool("correndo", true);
             }
-            
-
         }
         
-            if ((move.x == 0 || Input.GetKeyUp(KeyCode.LeftShift)) && animator.GetBool("correndo") == true)
-            {
-                    speed = speed / 2.5f;
-                    animator.SetBool("correndo", false);
-            }
+        if ((move.x == 0 || Input.GetKeyUp(KeyCode.LeftShift)) && animator.GetBool("correndo") == true)
+        {
+            speed = speed / 2.5f;
+            animator.SetBool("correndo", false);
+        }
 
         if (move.x > 0.01f)
         {
@@ -116,52 +114,15 @@ public class Player : Character
             {
                 myRigidbody.velocity = Vector2.up * jumpForce;
                 direction.y = move.y * jumpForce;
-                
-                
-
-            }
-           
-           
+            } 
         }
         if (!isGrounded)
         {
             animator.SetBool("pulando", true);
         }
-        
-        
-        
-        
     }
     private void GetInput()
     {
-       
-
-        /*if (Input.GetKey(KeyCode.W))
-        {
-            
-            direction += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            
-            direction += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            
-            direction += Vector2.right;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            
-            direction += Vector2.left;
-        }*/
-        if (controlEnabled)
-        {
-            direction.x = Input.GetAxis("Horizontal");
-            print("apertei");
-
-        }
 
         /*if (Input.GetKeyDown(KeyCode.Space))
         {

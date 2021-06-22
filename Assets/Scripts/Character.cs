@@ -37,39 +37,12 @@ public abstract class Character : MonoBehaviour
     {
         // muda a posição do personagem //
         myRigidbody.velocity = new Vector2(direction.x * speed, myRigidbody.velocity.y);
-        
-
-       
     }
     protected virtual void ComputeVelocity()
     {
 
     }
-    
-    /*public void HandleLayers()
-    {
-        // checar se está movendo //
-        if(IsMoving)
-        {
-
-            ActivateLayer("AndarLayer");
-            animator.SetFloat("x", directionMouse.x);
-            animator.SetFloat("y", directionMouse.y);
-            StopAttack();
-        }
-        else if(isAttacking)
-        {
-            ActivateLayer("AtacarLayer");
-        }
-        else
-        {
-            // faz com que volte a posição quando não está pressionando //
-            ActivateLayer("ParadoLayer");
-            animator.SetFloat("x", directionMouse.x);
-            animator.SetFloat("y", directionMouse.y);
-        }
-    }*/
-    
+  
     public void ActivateLayer(string layerName) // ativa a animação expecifica //
     {
         for (int i = 0;i < animator.layerCount; i++)

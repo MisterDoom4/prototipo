@@ -25,6 +25,7 @@ public class Player : Character
     //private bool encostou = false;
 
     public bool controlEnabled = true;
+    private bool dead;
 
     Vector2 move;
 
@@ -44,15 +45,18 @@ public class Player : Character
     [SerializeField]
     private Transform pePos;
     [SerializeField]
+    private Transform posicaoRespawn;
+    [SerializeField]
     private float checkRadius;
     [SerializeField]
     private LayerMask whatIsGround;
+    [SerializeField]
+    private LayerMask whatIsVazio;
 
 
 
     protected override void Start()
     {
-        
         //saude.Initialize(initHealth, initHealth);
         //mana.Initialize(initMana, initMana);
         
@@ -69,23 +73,28 @@ public class Player : Character
         if (controlEnabled)
         {
             move.x = Input.GetAxisRaw("Horizontal");
-
         }
         else
         {
             move.x = 0;
         }
         isGrounded = Physics2D.OverlapCircle(pePos.position, checkRadius, whatIsGround);
+        dead = Physics2D.OverlapCircle(pePos.position, checkRadius, whatIsVazio);
+
         base.Update();
        
     }
 
     protected override void ComputeVelocity()
     {
+        if (dead)
+        {
+            myRigidbody.position = posicaoRespawn.position;
+        }
         if (isGrounded)
         {
             animator.SetBool("pulando", false);
-            if (Input.GetKeyDown(KeyCode.LeftShift) && animator.GetBool("correndo") == false && move.x != 0)
+            if (Input.GetKey(KeyCode.LeftShift) && animator.GetBool("correndo") == false && move.x != 0)
             {
                     speed = speed * 2.5f;
                     animator.SetBool("correndo", true);
@@ -97,7 +106,6 @@ public class Player : Character
             speed = speed / 2.5f;
             animator.SetBool("correndo", false);
         }
-
         if (move.x > 0.01f)
         {
             spriteRenderer.flipX = false;
@@ -107,8 +115,38 @@ public class Player : Character
             spriteRenderer.flipX = true;
         }
         animator.SetFloat("velocityX", Mathf.Abs(move.x) / 7);
-        direction.x = move.x;
-        if (Input.GetKeyDown(KeyCode.Space))
+         if (Input.GetButtonDown("Fire1"))
+        {
+            animator.SetBool("atacarCima", true);
+            controlEnabled = false;
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            animator.SetBool("atacarCima", false);
+            
+        }
+            
+        if (Input.GetButtonDown("Fire2"))
+        {
+            animator.SetBool("atacarReto", true);
+            controlEnabled = false;
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
+            animator.SetBool("atacarReto", false);
+            
+        } 
+        if(animator.GetBool("special") == true)
+        {
+            animator.SetBool("special", false);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator.SetBool("special", true);
+        }
+       
+            direction.x = move.x;
+        if (Input.GetButton("Jump"))
         {
             if (isGrounded)
             {
@@ -120,6 +158,9 @@ public class Player : Character
         {
             animator.SetBool("pulando", true);
         }
+
+       
+
     }
     private void GetInput()
     {
@@ -183,7 +224,6 @@ public class Player : Character
         RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, distancia.position),256);
         if (hit.collider == null)
         {
-            
             return true;
         }
         return false;

@@ -108,11 +108,13 @@ public class Player : Character
         }
         if (move.x > 0.01f)
         {
-            spriteRenderer.flipX = false;
+            //spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else if(move.x < -0.01f)
         {
-            spriteRenderer.flipX = true;
+            //spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         animator.SetFloat("velocityX", Mathf.Abs(move.x) / 7);
          if (Input.GetButtonDown("Fire1"))

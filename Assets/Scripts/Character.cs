@@ -6,7 +6,7 @@ public abstract class Character : MonoBehaviour
 {
     protected float speed;
     protected Vector2 direction;
-    protected Vector2 directionMouse;
+    //protected Vector2 directionMouse;
     protected Rigidbody2D myRigidbody;
     protected Animator animator;
     protected bool isAttacking = false;
@@ -61,10 +61,10 @@ public abstract class Character : MonoBehaviour
 
         }
     }
-    public Vector2 retornarVetor()
-    {
-        return directionMouse;
-    }
+    //public Vector2 retornarVetor()
+    //{
+        //return directionMouse;
+    //}
     public Animator retornarAnimator()
     {
         return animator;

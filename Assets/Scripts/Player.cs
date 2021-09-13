@@ -8,21 +8,23 @@ using UnityEngine;
 public class Player : Character
 {
     //[SerializeField]
-   // private Stat saude;
+    // private Stat saude;
     //[SerializeField]
     //private Stat mana;
 
     //private float initHealth = 100, initMana = 50;
-    
+
     //[SerializeField]
     //private GameObject flecha;
-    
+
     //private Arma arma;
     //[SerializeField]
     //private GameObject[] inventariosArmas;
 
-   
+
     //private bool encostou = false;
+
+    public  Vector2 directionMouse; // direção da mira //
 
     public bool controlEnabled = true;
     private bool dead;
@@ -130,6 +132,7 @@ public class Player : Character
             
         if (Input.GetButtonDown("Fire2"))
         {
+            directionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             animator.SetBool("atacarReto", true);
             controlEnabled = false;
         }
@@ -237,6 +240,10 @@ public class Player : Character
         
         
 
+    }
+    public Vector2 retornarMira()
+    {
+        return directionMouse;
     }
 }
 

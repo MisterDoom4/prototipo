@@ -570,6 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee373c90bf48a842aaa0f724a13c462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionMouse: {x: 0, y: 0}
   controlEnabled: 1
   exitPoints: {fileID: 0}
   distancia: {fileID: 0}
@@ -722,6 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722097072}
   - component: {fileID: 722097073}
+  - component: {fileID: 722097074}
   m_Layer: 0
   m_Name: Usopp - ShootMode_3
   m_TagString: Untagged
@@ -795,6 +797,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &722097074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722097071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef90397048b7adf4db904dea8096e1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jogador: {fileID: 512435065}
 --- !u!1 &853885266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,6 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee373c90bf48a842aaa0f724a13c462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionMouse: {x: 0, y: 0}
   controlEnabled: 1
   exitPoints: {fileID: 0}
   distancia: {fileID: 0}
